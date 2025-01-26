@@ -1,0 +1,94 @@
+<script>
+	import { onMount } from 'svelte';
+	import Article from '../../Components/Article.svelte';
+	let query = '';
+	let articles = [];
+
+	function handleSubmit() {
+		fetchArticles();
+	}
+
+	const fetchArticles = async () => {
+		const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=0e801b68d50641ac940d8d3442dbfaac`;
+		const response = await fetch(url);
+		const data = await response.json();
+		articles = data.articles;
+		articles.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+		console.log(articles);
+	};
+</script>
+
+<main>
+    <form action="">
+	<input bind:value={query} type="text" placeholder="Search" />
+	<button on:click={handleSubmit}>Rechercher</button>
+    <input type= "reset" value="Reset">
+</form>
+	<div class="container">
+		{#each articles as article}
+			<Article {article} />
+		{/each}
+	</div>
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		padding: 20px;
+	}
+    form {  
+        display: flex; 
+        flex-direction: column; 
+        gap: 5px;
+    }
+	input {
+		padding: 10px 30px;
+		text-align: center;
+	}
+    input[type=reset] {
+        padding: 5px 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        width: 60%;
+        margin: 0 auto;
+    }
+	button {
+		padding: 5px 20px;
+		cursor: pointer;
+		transition: 0.3s ease-in-out;
+        width: 60%;
+        margin: 0 auto;
+	}
+	button:hover {
+		background-color: #262525;
+		color: white;
+	}
+    button:active {
+		background-color: #262525;
+		color: white;
+        transition: 0s;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+		height: auto;
+		gap: 20px;
+		padding: 20px;
+	}
+
+    @media (max-width: 768px) {
+    .container {
+       padding: 5px;
+    }
+}
+
+</style>
