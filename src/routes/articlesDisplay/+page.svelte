@@ -20,9 +20,11 @@
 
 <main>
     <form action="">
-	<input bind:value={query} type="text" placeholder="Search" />
+        <label for="any">Recherchez vos articles en tapant des mots clefs ou expressions. <br>
+      Écrivez en Français pour obtenir la plupart des articles de presse en Français, etc. </label>
+	<input bind:value={query} name="any"type="text" placeholder="Search" />
 	<button on:click={handleSubmit}>Rechercher</button>
-    <input type= "reset" value="Reset">
+    <input type= "reset" value="Effacer">
 </form>
 	<div class="container">
 		{#each articles as article}
@@ -45,23 +47,28 @@
         flex-direction: column; 
         gap: 5px;
     }
+    label {
+        text-align: center;
+        font-size: 1rem;
+        color: grey;
+    }
 	input {
 		padding: 10px 30px;
 		text-align: center;
 	}
     input[type=reset] {
-        padding: 5px 20px;
+        padding: 5px 10px;
         text-align: center;
         cursor: pointer;
         transition: 0.3s ease-in-out;
-        width: 60%;
+        width: 30%;
         margin: 0 auto;
     }
 	button {
-		padding: 5px 20px;
+		padding: 5px 10px;
 		cursor: pointer;
 		transition: 0.3s ease-in-out;
-        width: 60%;
+        width: 30%;
         margin: 0 auto;
 	}
 	button:hover {
@@ -88,6 +95,12 @@
     @media (max-width: 768px) {
     .container {
        padding: 5px;
+    }
+    button{
+        width: 40%;
+    }
+    input[type=reset] {
+        width: 40%;
     }
 }
 
