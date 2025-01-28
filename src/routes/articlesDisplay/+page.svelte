@@ -54,6 +54,11 @@
     }
 	input {
 		padding: 10px 30px;
+		text-align: left;
+		width: 60%;
+		margin: 0 auto;
+	}
+	input::placeholder{
 		text-align: center;
 	}
     input[type=reset] {
