@@ -28,7 +28,7 @@
 		margin-bottom: 10px;
 		flex-grow: 1;
 		width: 300px;
-		height: 730px;
+		height: 760px;
 		overflow: hidden;
 	}
 	.wrapper__info {

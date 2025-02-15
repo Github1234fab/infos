@@ -20,8 +20,8 @@
 
 <main>
     <form action="">
-        <label for="any">Recherchez vos articles en tapant des mots clefs ou expressions. <br>
-      Écrivez en Français pour obtenir la plupart des articles de presse en Français, etc. </label>
+        <label for="any">Recherchez vos articles en tapant des mots clefs, des expressions, la date du jour, etc. <br>
+     Pour traduire les résultats dans votre langue, utilisez une extension de votre navigateur. </label>
 	<input bind:value={query} name="any"type="text" placeholder="Search" />
 	<button on:click={handleSubmit}>Rechercher</button>
     <input type= "reset" value="Effacer">
@@ -45,7 +45,7 @@
     form {  
         display: flex; 
         flex-direction: column; 
-        gap: 5px;
+        gap: 10px;
     }
     label {
         text-align: center;

@@ -4,7 +4,7 @@
 			<h1>News <span>Detox</span></h1>
 		</div>
 		<h2>Vous souhaitez <br />reprendre la main <br />sur le fil d'info ?</h2>
-		<a href="/articlesDisplay">Accès</a>
+		<a href="/testGps">Accès</a>
 	</div>
 </main>
 
