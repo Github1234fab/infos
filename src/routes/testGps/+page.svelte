@@ -49,7 +49,6 @@
       if (positions.length === 1) {
         map.setView(positions[0], 15);
       }
-  
       polyline.setLatLngs(positions);
     }
   
@@ -68,13 +67,15 @@
     }
   
     onMount(() => {
-      map = L.map("map").setView([48.8566, 2.3522], 13); // Paris par défaut
+      if (typeof window !== "undefined") {
+        map = L.map("map").setView([48.8566, 2.3522], 13); // Paris par défaut
   
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(map);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors",
+        }).addTo(map);
   
-      polyline = L.polyline([], { color: "blue" }).addTo(map);
+        polyline = L.polyline([], { color: "blue" }).addTo(map);
+      }
     });
   </script>
   
